@@ -5,8 +5,6 @@ After=tor.service
 
 [Service]
 Type=simple
-# sudo useradd --home-dir /home/zeronet --create-home --system --shell /sbin/nologin --comment "Account to run ZeroNet" --user-group zeronet
-# sudo usermod -a -G debian-tor zeronet
 User=zeronet
 Group=zeronet
 WorkingDirectory=/home/zeronet/ZeroBundle/ZeroNet/
