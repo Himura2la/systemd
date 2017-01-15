@@ -14,3 +14,7 @@ sudo systemctl enable ts3.service
 sudo service ts3 start
 sudo service ts3 status
 ```
+
+Thanks to these articles:
+- [Systemd за пять минут](https://habrahabr.ru/company/centosadmin/blog/255845/)
+- [Toxcore Bootstrap_Daemon Instructions](https://github.com/irungentoo/toxcore/tree/master/other/bootstrap_daemon)
