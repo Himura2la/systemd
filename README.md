@@ -9,6 +9,13 @@ Currently I have startup scripts for the following things:
 ```bash
 sudo useradd --home-dir /home/zeronet --create-home --system --shell /usr/sbin/nologin --user-group -G debian-tor zeronet
 
+echo "[global]
+ui_ip = *
+ui_password = anypassword
+" > /etc/zeronet.conf
+chmod 600 /etc/zeronet.conf
+sudo chown zeronet:zeronet /etc/zeronet.conf
+
 cp ts3.service /etc/systemd/system/ts3.service
 
 chmod 644 /etc/systemd/system/ts3.service
