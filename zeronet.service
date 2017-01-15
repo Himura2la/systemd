@@ -1,0 +1,19 @@
+[Unit]
+Description=ZeroNet network
+After=network.target
+After=tor.service
+
+[Service]
+Type=simple
+# sudo useradd --home-dir /home/zeronet --create-home --system --shell /sbin/nologin --comment "Account to run ZeroNet" --user-group zeronet
+# sudo usermod -a -G debian-tor zeronet
+User=zeronet
+Group=zeronet
+WorkingDirectory=/home/zeronet/ZeroBundle/ZeroNet/
+ExecStart=/home/zeronet/ZeroBundle/Python/python zeronet.py --config_file /etc/zeronet.conf
+# Restart=on-failure
+# RestartSec=15
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
