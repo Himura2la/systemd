@@ -16,14 +16,14 @@ ui_password = anypassword
 chmod 600 /etc/zeronet.conf
 sudo chown zeronet:zeronet /etc/zeronet.conf
 
-cp ts3.service /etc/systemd/system/ts3.service
-chmod 644 /etc/systemd/system/ts3.service
-sudo chown root:root /etc/systemd/system/ts3.service
+cp ts3.service /etc/systemd/system/zeronet.service
+chmod 644 /etc/systemd/system/zeronet.service
+sudo chown root:root /etc/systemd/system/zeronet.service
 
 sudo systemctl daemon-reload
-sudo systemctl enable ts3.service
-sudo service ts3 start
-sudo service ts3 status
+sudo systemctl enable zeronet.service
+sudo service zeronet start
+sudo service zeronet status
 ```
 
 Thanks to these articles:
