@@ -2,7 +2,7 @@ Currently I have startup scripts for the following things:
 
 - [TeamSpeak 3 Server](ts3.service)
 - [ZeroNet network server](zeronet.service)
-
+- [TTL fix for free Yota Internet Tethering](zeronet.service)
 
 # Useful commands
 
