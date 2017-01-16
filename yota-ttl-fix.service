@@ -1,6 +1,5 @@
 [Unit]
-Description=Yota TTL Fix
-# Sets TTL to 65 for Yota Internet Tethering
+Description=TTL changer
 
 [Service]
 Type=oneshot
