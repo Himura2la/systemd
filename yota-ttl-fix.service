@@ -1,0 +1,10 @@
+[Unit]
+Description=Yota TTL Fix
+# Sets TTL to 65 for Yota Internet Tethering
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/iptables -t mangle -A POSTROUTING -j TTL --ttl-set 65
+
+[Install]
+WantedBy=multi-user.target
