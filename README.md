@@ -16,7 +16,7 @@ ui_password = anypassword
 chmod 600 /etc/zeronet.conf
 sudo chown zeronet:zeronet /etc/zeronet.conf
 
-cp ts3.service /etc/systemd/system/zeronet.service
+cp zeronet.service /etc/systemd/system/zeronet.service
 chmod 644 /etc/systemd/system/zeronet.service
 sudo chown root:root /etc/systemd/system/zeronet.service
 
