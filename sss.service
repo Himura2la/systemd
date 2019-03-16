@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/etc/shadowsocks/instance.pid
-ExecStart=/usr/local/bin/ssserver -с /etc/shadowsocks/server.json --user nobody --pid-file /etc/shadowsocks/instance.pid -d start
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/server.json --user nobody --pid-file /etc/shadowsocks/instance.pid -d start
 ExecStop=/usr/local/bin/ssserver -d stop
 ExecReload=/usr/local/bin/ssserver -d restart
 Restart=always
