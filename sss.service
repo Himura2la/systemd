@@ -4,13 +4,11 @@ After=network.target
 
 [Service]
 Type=forking
-PIDFile=/etc/shadowsocks/instance.pid
-ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/server.json --user nobody --pid-file /etc/shadowsocks/instance.pid -d start
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/server.json --user nobody --pid-file /var/run/shadowsocks.pid -d start
 ExecStop=/usr/local/bin/ssserver -d stop
-ExecReload=/usr/local/bin/ssserver -d restart
+PIDFile=/var/run/shadowsocks.pid
 Restart=always
-RestartSec=15
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
-
