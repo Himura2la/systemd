@@ -1,0 +1,12 @@
+[Unit]
+Description=Async MTProto Proxy
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/mtprotoproxy/mtprotoproxy.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
