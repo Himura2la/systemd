@@ -1,0 +1,10 @@
+[Unit]
+Description=AutoSSH reverse tunnel service for my VPS
+After=network.target
+
+[Service]
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -N my-rev-tun
+
+[Install]
+WantedBy=multi-user.target

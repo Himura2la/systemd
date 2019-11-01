@@ -1,0 +1,8 @@
+Host my-rev-tun
+    Hostname <...>
+    Port <...>
+    User <...>
+    RemoteForward <remote_port> localhost:<local_port> 
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
+    ExitOnForwardFailure yes
