@@ -1,0 +1,13 @@
+[Unit]
+Description=Aerial Wi-Fi monitoring service
+After=network.target
+
+[Service]
+ExecStart=/root/mon.sh
+KillSignal=SIGINT
+Restart=always
+RestartSec=30
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
