@@ -3,6 +3,8 @@ Description=VNC Server for display 0
 Requires=lightdm.service
 After=lightdm.service
 
+# x11vnc -storepasswd PASSWORD /etc/x11vnc.pass
+
 [Service]
 Type=simple
 ExecStart=/usr/bin/x11vnc -auth /var/run/lightdm/root/:0 -display WAIT:0 -forever -shared -rfbauth /etc/x11vnc.pass
