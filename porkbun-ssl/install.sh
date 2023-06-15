@@ -24,9 +24,8 @@ set +x
 echo "
 TODO:
     vim $script_path/.env
-
+    $script_path/retrieve.sh
     service porkbun-ssl-retrieve start
-    journalctl -ru porkbun-ssl-retrieve
-
+    service porkbun-ssl-retrieve status
     systemctl enable porkbun-ssl-retrieve.timer
 "
