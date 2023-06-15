@@ -1,0 +1,10 @@
+[Unit]
+Description=Retrieve the SSL certificate bundle from PorkBun
+Requires=porkbun-ssl-retrieve.service
+
+[Timer]
+Unit=porkbun-ssl-retrieve.service
+OnCalendar=weekly
+
+[Install]
+WantedBy=timers.target

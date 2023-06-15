@@ -1,0 +1,11 @@
+[Unit]
+Description=Retrieve the SSL certificate bundle from PorkBun
+Wants=porkbun-ssl-retrieve.timer
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/porkbun-ssl/retrieve.sh
+
+[Install]
+WantedBy=multi-user.target
