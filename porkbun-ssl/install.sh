@@ -7,10 +7,13 @@ systemd_path="/etc/systemd/system"
 
 remote_path="https://github.com/Himura2la/systemd/raw/master/porkbun-ssl"
 
-mkdir -p $local_path
+mkdir -p $script_path
 
 curl -Ss "$remote_path/retrieve.sh" "$script_path/retrieve.sh"
+chmod +x "$script_path/retrieve.sh"
+
 curl -Ss "$remote_path/.env" "$script_path/.env"
+
 curl -Ss "$remote_path/porkbun-ssl-retrieve.service" "$systemd_path/porkbun-ssl-retrieve.service"
 curl -Ss "$remote_path/porkbun-ssl-retrieve.timer" "$systemd_path/porkbun-ssl-retrieve.timer"
 

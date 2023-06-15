@@ -1,3 +1,3 @@
 ```
-curl -Ss https://github.com/Himura2la/systemd/raw/master/porkbun-ssl/install.sh | bash
+curl -LSs https://github.com/Himura2la/systemd/raw/master/porkbun-ssl/install.sh | bash
 ```
