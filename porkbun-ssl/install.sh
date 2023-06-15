@@ -12,7 +12,8 @@ mkdir -p "$script_path"
 curl -LSs "$remote_path/retrieve.sh" --output "$script_path/retrieve.sh"
 chmod +x "$script_path/retrieve.sh"
 
-curl -LSs "$remote_path/.env" --output "$script_path/.env"
+[ ! -f "$script_path/.env" ] && \
+    curl -LSs "$remote_path/.env" --output "$script_path/.env"
 
 curl -LSs "$remote_path/porkbun-ssl-retrieve.service" --output "$systemd_path/porkbun-ssl-retrieve.service"
 curl -LSs "$remote_path/porkbun-ssl-retrieve.timer" --output "$systemd_path/porkbun-ssl-retrieve.timer"
