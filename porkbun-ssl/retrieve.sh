@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xe
+set -e
 hash curl || exit 1
 hash jq || exit 2
 
@@ -22,32 +22,36 @@ apikey="${PORKBUN_API_KEY?"$usage_msg"}"
 secret="${PORKBUN_SECRET_API_KEY?"$usage_msg"}"
 ssl_dir="${PORKBUN_SSL_DIR:-"/etc/ssl/porkbun/"}"
 
-domain="$domains"  # TODO: support several domains
+retrieve_domain() {
+	local domain=${1?"Usage: ${FUNCNAME[0]} domain"}
+    target_dir="${ssl_dir%%/}/$domain"
+    mkdir -p $target_dir
+    r="$(\
+    curl -Ss \
+        -X POST \
+        -H "Content-Type: application/json" \
+        -d "{\"secretapikey\":\"$secret\",\"apikey\":\"$apikey\"}" \
+        https://porkbun.com/api/json/v3/ssl/retrieve/$domain \
+    )"
+    if [ "$(echo "$r" | jq -r '.status')" == ERROR ]
+    then
+        echo "$r" | jq
+        exit 3
+    else
+        chain_path="$target_dir/certificatechain.pem"
+        echo "$r" | jq -r '.certificatechain' > "$chain_path"
+        echo "$chain_path"
 
-target_dir="${ssl_dir%%/}/$domain"
+        privatekey_path="$target_dir/privatekey.pem"
+        echo "$r" | jq -r '.privatekey' > "$privatekey_path"
+        echo "$privatekey_path"
 
-mkdir -p $target_dir
-exit 0
-r="$(\
-curl -Ss \
-    -X POST \
-    -H "Content-Type: application/json" \
-    -d "{\"secretapikey\":\"$secret\",\"apikey\":\"$apikey\"}" \
-    https://porkbun.com/api/json/v3/ssl/retrieve/$domain \
-)"
+        chmod -v 600 "$privatekey_path"
+    fi
+}
 
-if [ "$(echo "$r" | jq -r '.status')" == ERROR ]
-then
-    echo "$r" | jq
-    exit 3
-else
-    chain_path="$target_dir/certificatechain.pem"
-    echo "$r" | jq -r '.certificatechain' > "$chain_path"
-    echo "$chain_path"
-
-    privatekey_path="$target_dir/privatekey.pem"
-    echo "$r" | jq -r '.privatekey' > "$privatekey_path"
-    echo "$privatekey_path"
-
-    chmod -v 600 "$privatekey_path"
-fi
+for domain in ${domains//,/ }
+do
+    echo "--- retrieve_domain $domain"
+    retrieve_domain $domain
+done
