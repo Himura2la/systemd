@@ -23,7 +23,7 @@ secret="${PORKBUN_SECRET_API_KEY?"$usage_msg"}"
 ssl_dir="${PORKBUN_SSL_DIR:-"/etc/ssl/porkbun/"}"
 
 retrieve_domain() {
-	local domain=${1?"Usage: ${FUNCNAME[0]} domain"}
+    local domain=${1?"Usage: ${FUNCNAME[0]} domain"}
     target_dir="${ssl_dir%%/}/$domain"
     mkdir -p $target_dir
     r="$(\
