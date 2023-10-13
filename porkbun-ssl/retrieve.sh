@@ -55,3 +55,5 @@ do
     echo "--- retrieve_domain $domain"
     retrieve_domain $domain
 done
+
+service nginx reload
