@@ -6,7 +6,5 @@ sudo wget -O /etc/systemd/system/wallpaper-changer.timer   $base_path/wallpaper-
 sudo wget -O /opt/set-random-wallpaper.sh                  $base_path/set-random-wallpaper.sh
 sudo chmod +x /opt/set-random-wallpaper.sh
 
-sudo systemctl daemon-reload
-sudo systemctl enable wallpaper-changer.timer
-
-echo "Please, set your wallpapers dir in '/etc/systemd/system/wallpaper-changer.service'"
+echo "Please, set your user and wallpapers dir in '/etc/systemd/system/wallpaper-changer.service'"
+echo "after that, do 'sudo systemctl daemon-reload && sudo systemctl enable wallpaper-changer.timer'

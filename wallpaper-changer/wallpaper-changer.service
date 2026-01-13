@@ -1,6 +1,7 @@
 [Unit]
 Description=set random wallpaper
 Wants=wallpaper-changer.timer
+User=himura
 
 [Service]
 Type=oneshot
