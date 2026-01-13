@@ -2,10 +2,12 @@
 Description=set random wallpaper
 Wants=wallpaper-changer.timer
 User=himura
+Group=himura
 
 [Service]
 Type=oneshot
 ExecStart=/opt/set-random-wallpaper.sh /home/himura/Pictures/Wallpapers
+Environment="DISPLAY=:0"
 
 [Install]
 WantedBy=multi-user.target

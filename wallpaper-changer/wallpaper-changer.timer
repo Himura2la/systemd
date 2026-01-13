@@ -4,7 +4,7 @@ Requires=wallpaper-changer.service
 
 [Timer]
 Unit=wallpaper-changer.service
-OnCalendar=daily
+OnCalendar=*:0/30
 
 [Install]
 WantedBy=timers.target
