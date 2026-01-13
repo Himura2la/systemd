@@ -1,4 +1,6 @@
 #!/bin/sh
+set -x
+
 base_path=https://raw.githubusercontent.com/Himura2la/systemd/refs/heads/master/wallpaper-changer
 
 sudo wget -O /etc/systemd/system/wallpaper-changer.service $base_path/wallpaper-changer.service

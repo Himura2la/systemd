@@ -1,0 +1,1 @@
+wget -O- https://raw.githubusercontent.com/Himura2la/systemd/refs/heads/master/wallpaper-changer/install.sh | sh
