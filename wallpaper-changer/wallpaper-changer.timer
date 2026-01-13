@@ -1,0 +1,10 @@
+[Unit]
+Description=set random wallpaper
+Requires=wallpaper-changer.service
+
+[Timer]
+Unit=wallpaper-changer.service
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target
